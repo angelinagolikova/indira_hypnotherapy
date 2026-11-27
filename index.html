@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Стратегия: Индира Боисова</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E0C0B; --ink:#ECE2D3; --muted:#A39484; --line:#2F2721; --card:#16120F;
+  --c0:#D6AA6A; --t0:#231B12;
+  --c1:#C8955E; --t1:#22190F;
+  --c2:#C38A70; --t2:#241913;
+  --c3:#B99BC4; --t3:#1F1922;
+  --c4:#E2C390; --t4:#251E13;
+  --c5:#BF7D5E; --t5:#24170F;
+  --fs:17px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Onest",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:var(--fs);line-height:1.6}
+.app{display:flex;min-height:100vh}
+aside{width:300px;flex:none;position:sticky;top:0;height:100vh;overflow-y:auto;padding:28px 18px 24px;border-right:1px solid var(--line);background:#FBF7F1}
+.brand{font-weight:600;font-size:15px;line-height:1.35;margin:0 8px 22px;color:var(--ink)}
+.brand small{display:block;color:var(--muted);font-weight:400;margin-top:4px}
+.nb{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;padding:10px 10px;border-radius:12px;font:inherit;font-size:15px;color:var(--ink);cursor:pointer}
+.nb:hover{background:#F2E8DC}
+.nb .n{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:var(--line);color:var(--muted)}
+.ni.on .nb{background:var(--t);font-weight:600}
+.ni.on .nb .n{background:var(--c);color:#fff}
+.subs{display:none;padding:2px 0 8px 50px}
+.ni.on .subs{display:block}
+.sub{display:block;font-size:13.5px;color:var(--muted);text-decoration:none;padding:4px 6px;border-radius:8px;line-height:1.35}
+.sub:hover{color:var(--ink);background:#F2E8DC}
+.tools{margin:22px 8px 0;display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.tools button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:4px 10px;font:inherit;cursor:pointer;color:var(--ink)}
+main{flex:1;min-width:0;padding:40px 48px 80px}
+.pg{display:none;max-width:860px;margin:0 auto;background:var(--card);border-radius:20px;padding:44px 52px 40px;border-top:6px solid var(--c)}
+.pg.on{display:block}
+h1,h2{font-weight:700;line-height:1.2;margin:0 0 24px;letter-spacing:-.01em}
+h1{font-size:2em}
+h2{font-size:1.75em;color:var(--c)}
+h3{font-size:1.2em;font-weight:600;margin:38px 0 12px;padding-top:22px;border-top:1px solid var(--line);scroll-margin-top:24px}
+h4{font-size:1.05em;font-weight:600;margin:24px 0 10px}
+h2+h3{border-top:0;padding-top:0;margin-top:8px}
+p{margin:0 0 14px}
+b{font-weight:600}
+ul,ol{margin:0 0 16px;padding-left:1.4em}
+li{margin:0 0 8px}
+ul li::marker{color:var(--c)}
+ol li::marker{color:var(--c);font-weight:600}
+.note{background:var(--t);border-left:4px solid var(--c);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 18px}
+.note p:last-child,.note ul:last-child{margin-bottom:0}
+.note.warn{background:#FFF6E0;border-left-color:#E0A21B}
+.scheme{background:var(--t);border-radius:16px;padding:22px 24px;margin:0 0 20px;font-size:.92em;line-height:1.45}
+.scheme .ln{white-space:pre-wrap}
+.scheme .hd{font-weight:600;color:var(--c);margin-top:2px}
+.scheme .arrow{color:var(--c);font-weight:700;padding:3px 0 3px 2px}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;font-size:.9em;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
+th{background:var(--t);font-weight:600}
+th.nw{white-space:nowrap}
+td.nw{white-space:nowrap}
+.ov td{vertical-align:middle}
+.ov td:first-child{min-width:0;width:72px}
+.ov td:nth-child(4){min-width:240px}
+.ov tr.wk td{background:var(--t);font-weight:600;color:var(--c)}
+.ov td.cb{text-align:center}
+.ov input{width:18px;height:18px;accent-color:var(--c)}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.85em;white-space:nowrap}
+.tag.g1{background:#ECEFFC;color:#3B2A22}.tag.g2{background:#FEEBF4;color:#C2186F}.tag.g3{background:#E3F4F0;color:#00705F}
+
+tbody tr:last-child td{border-bottom:0}
+td:first-child{font-weight:500;min-width:190px}
+.pager{max-width:860px;margin:22px auto 0;display:flex;justify-content:space-between;gap:12px}
+.pager button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 18px;font:inherit;font-size:15px;cursor:pointer;color:var(--ink);max-width:48%;text-align:left}
+.pager button:hover{border-color:var(--muted)}
+.pager button[hidden]{visibility:hidden;display:block}
+.pager .nx{text-align:right;margin-left:auto}
+.pager small{display:block;color:var(--muted);font-size:12.5px}
+button:focus-visible,a:focus-visible{outline:2px solid var(--c1);outline-offset:2px}
+.menu{display:none}
+@media (max-width:900px){
+  .app{display:block}
+  aside{position:fixed;inset:0 auto 0 0;z-index:20;transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 40px rgba(43,34,48,.15)}
+  aside.open{transform:none}
+  .menu{display:inline-flex;position:sticky;top:0;z-index:10;margin:12px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 14px;font:inherit;font-size:15px}
+  main{padding:8px 12px 60px}
+  .pg{padding:28px 22px;border-radius:16px}
+}
+@media (prefers-reduced-motion:reduce){aside{transition:none}}
+@media print{aside,.pager,.menu{display:none}.pg{display:block;border:0;padding:0}main{padding:0}}
+.wk-intro{color:var(--muted)}
+details.reel{border:1px solid var(--line);border-radius:14px;margin:0 0 10px;background:#fff}
+details.reel[open]{border-color:var(--c)}
+details.reel summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 16px;flex-wrap:wrap}
+details.reel summary::-webkit-details-marker{display:none}
+details.reel summary::before{content:'›';font-weight:700;color:var(--c);transition:transform .15s;display:inline-block}
+details.reel[open] summary::before{transform:rotate(90deg)}
+.reel .d{font-weight:600;min-width:28px}
+.reel .f{flex:1;min-width:160px}
+.reel .w{font-size:.8em;font-weight:700;background:var(--c);color:#fff;border-radius:6px;padding:2px 8px}
+.tag{font-size:.75em;border-radius:20px;padding:2px 10px;background:var(--line);white-space:nowrap}
+.tag-охват{background:#ECEFFC;color:#3B2A22}.tag-подписка{background:#E3F4F0;color:#00705F}.tag-доверие{background:#FEEBF4;color:#C2186F}
+.rb{padding:2px 18px 16px}
+.lbl{font-size:.78em;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:14px 0 6px;display:flex;align-items:center;gap:10px}
+.cp{font:inherit;text-transform:none;letter-spacing:0;font-size:.95em;border:1px solid var(--line);background:#fff;border-radius:8px;padding:2px 10px;cursor:pointer;color:var(--ink)}
+.cp.ok{background:var(--t);border-color:var(--c)}
+.screen{white-space:pre-wrap;background:var(--t);border-radius:12px;padding:14px 16px;font-weight:500}
+.cap{white-space:pre-wrap}
+.cta{font-weight:500}
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 6px}
+.ex{background:#FBF7F1;border:1px solid var(--line);border-radius:14px;padding:4px 16px}
+.ex h4{margin:12px 0 6px}
+.ex ul{padding-left:1.1em}
+@media (max-width:700px){.extras{grid-template-columns:1fr}}
+
+.ov td:first-child{min-width:0;width:44px;font-weight:400}
+.ov td:nth-child(2){width:56px;font-weight:600}
+.ov td:nth-child(4){min-width:240px}
+.ov a.jump{color:var(--ink);text-decoration:none;border-bottom:1px dashed var(--muted)}
+.ov a.jump:hover{color:var(--c);border-color:var(--c)}
+.reel .w.soft{background:var(--line);color:var(--muted);font-weight:500}
+.lbl.big{margin:22px 0 10px}
+h3 .wk{font-weight:500;color:var(--muted);font-size:.85em}
+details.howto{background:#FBF7F1;border:1px solid var(--line);border-radius:14px;padding:4px 18px;margin:0 0 18px}
+details.howto summary{cursor:pointer;font-weight:600;padding:10px 0}
+.reel .more{margin-top:8px}
+.reel .f small,.ov small.fm{display:block;color:var(--muted);font-size:.8em;margin-top:2px}
+.tg{display:inline-block;font-size:.66em;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-right:6px;vertical-align:2px;white-space:nowrap;line-height:1.4}.tg-f{background:#DDF3EE;color:#00705F}.tg-q{background:#FDF0CF;color:#8A5E00}.tg-h{background:#F2EAE3;color:#3B2A22}.note .tg{margin-right:1px}
+.sw{margin:14px 0}.st{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}.st button{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}.st button.on{background:var(--c0);border-color:var(--c0);color:#fff}pre.plain code{font-family:Onest,system-ui,sans-serif;white-space:pre-wrap;font-size:15px;line-height:1.7}.sw pre{margin-top:0}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;margin:12px 0;overflow:hidden}
+details>summary{cursor:pointer;list-style:none;padding:14px 18px;font-weight:600;color:var(--ink);background:#FBF7F1;position:relative;padding-right:44px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"+";position:absolute;right:18px;top:12px;font-size:22px;color:var(--c0);font-weight:500}
+details[open]>summary::after{content:"−"}
+details[open]>summary{border-bottom:1px solid var(--line);color:var(--c1)}
+details>*:not(summary){margin-left:18px;margin-right:18px}
+details>p:first-of-type{margin-top:14px}
+details>*:last-child{margin-bottom:16px}
+pre{position:relative;background:#FBF7F1;border:1px solid var(--line);border-radius:12px;padding:42px 18px 16px;white-space:pre-wrap;word-break:break-word;font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink);overflow-x:auto}
+pre code{font:inherit;background:none;padding:0;white-space:pre-wrap}
+.cp{position:absolute;top:8px;right:8px;border:1px solid var(--line);background:#fff;color:var(--c1);border-radius:8px;padding:4px 10px;font:600 12px/1.4 inherit;cursor:pointer}
+.cp:hover{background:var(--t1)}
+code{background:#F2E8DC;padding:1px 6px;border-radius:6px;font-size:.9em}
+
+.ng{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 10px 6px}
+.nl .nb{color:var(--c1)}
+.lead{font-size:1.02em;color:var(--muted);margin:0 0 18px}
+.tabs{margin-top:6px}.tbar{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.tbar button{font:inherit;font-size:14px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.tbar button.on{background:var(--c1);border-color:var(--c1);color:#fff}
+.tp{display:none}.tp.on{display:block}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:8px 0 26px}
+.gal figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.gal img{width:100%;display:block}.gal figcaption{padding:9px 12px;font-size:13px;color:var(--muted);line-height:1.4}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:8px 0 26px}
+a.card{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-top:4px solid var(--cc,var(--c1));border-radius:14px;padding:16px 18px;cursor:pointer}
+a.card:hover{box-shadow:0 6px 22px rgba(110,70,20,.14)}a.card b{display:block;font-size:1.02em;margin-bottom:4px}a.card span{display:block;font-size:.88em;color:var(--muted);line-height:1.45}
+ul.dl{list-style:none;padding:0}ul.dl li{padding:10px 0;border-bottom:1px solid var(--line)}ul.dl .fn{color:var(--muted);font-size:.8em;margin-left:8px}
+blockquote{border-left:3px solid var(--c1);margin:12px 0;padding:2px 16px;color:#4A3C33;background:#FBF7F1;border-radius:0 10px 10px 0}
+.pg table{font-size:.92em}
+
+/* dark gold theme, по визуалу Индиры */
+body{background:radial-gradient(1200px 600px at 70% -10%,#2A1E14 0%,transparent 60%),var(--bg)}
+aside{background:#110E0C;border-right-color:var(--line)}
+aside .brand{background:#0A0807;border:1px solid #4A3A28;color:#ECE2D3}
+aside .brand b{font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:600;color:#D6AA6A;letter-spacing:.02em}
+aside .brand small{color:#9C8C7C}
+.nb{color:#E4D8C8}.nb:hover,.sub:hover{background:#1E1813;color:#F3E9DB}
+.nb .n{background:#241D17;color:#A39484}
+.ng{color:#8E7E6E}
+.pg{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--c);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;letter-spacing:.01em}
+h1{font-size:2.5em;color:#E2C390;text-transform:uppercase;line-height:1.1}
+h2{font-size:2.2em;text-transform:uppercase;line-height:1.1}
+h2::after{content:"";display:block;width:110px;height:14px;margin-top:14px;background:linear-gradient(var(--c),var(--c)) left 50%/44px 1px no-repeat,linear-gradient(var(--c),var(--c)) right 50%/44px 1px no-repeat,radial-gradient(circle,var(--c) 0 3px,transparent 3.5px) center/14px 14px no-repeat}
+.pg h1{color:#E2C390}
+h3{color:#F0E4D2;border-top-color:var(--line)}
+h4{color:#E8DCCB}
+b,strong{color:#F5EBDD}
+a{color:#D6AA6A}
+.note{background:var(--t);border-left-color:var(--c);color:#E6DACA}
+.note.warn{background:#2A2012;border-left-color:#D9A441}
+pre,pre.plain{background:#120F0C;border-color:#3A2F25;color:#EDE2D2}
+pre code{color:#EDE2D2}
+.cp{background:#1C1611;border-color:#3A2F25;color:#D6AA6A}.cp:hover{background:#2A2017}
+code{background:#251D16;color:#E2C390}
+details{background:var(--card);border-color:var(--line)}details>summary{background:#1A1511;color:#ECE2D3}
+details[open]>summary{color:var(--c0)}
+blockquote{background:#1A1511;color:#DCCFBE;border-left-color:var(--c0)}
+a.card{background:#1A1511;border-color:var(--line);border-top-color:var(--cc,var(--c0));color:#ECE2D3}
+a.card:hover{box-shadow:0 8px 28px rgba(214,170,106,.18)}a.card span{color:#A39484}
+.lead{color:#B3A494}
+.pager button,.tools button,.menu{background:#16120F;border-color:var(--line);color:#E4D8C8}
+.pager button:hover{border-color:#6A5640}
+table th{background:var(--t)}th,td{border-bottom-color:var(--line)}
+ul li::marker,ol li::marker{color:var(--c)}
+::selection{background:#5A4426;color:#fff}
+.pg{background:#F8F1E7;border-color:#E3D4C0;color:#2E231C}
+.pg h3,.pg h4{color:#2E231C}.pg b,.pg strong{color:#1F1712}.pg .lead{color:#7A6A5C}
+.pg h1{color:#A8771F}.pg h2{filter:brightness(.78)}
+.pg .note{background:#F1E4D0;color:#3A2D23}.pg .note.warn{background:#F7E7C9}
+.pg pre,.pg pre.plain{background:#FFFDF9;border-color:#E3D4C0;color:#2E231C}.pg pre code{color:#2E231C}
+.pg .cp{background:#fff;border-color:#E3D4C0;color:#8A611B}
+.pg code{background:#F1E4D0;color:#7A5416}.pg a.card{background:#FFFDF9;color:#2E231C;border-color:#E3D4C0}.pg a.card span{color:#7A6A5C}
+.pg ul li::marker,.pg ol li::marker{color:#A8771F}.pg h3{border-top-color:#E3D4C0}
+.pg details{background:#FFFDF9;border-color:#E3D4C0}.pg details>summary{background:#F1E4D0;color:#2E231C}
+
+
+aside .brand{border-radius:16px;padding:18px 16px;margin:0 4px 18px}
+aside .brand b{display:block;margin-bottom:4px}
+.note{border-left-color:var(--c0)}
+pre.plain{padding-top:40px}
+pre.plain code{font-family:Onest,system-ui,sans-serif;font-size:15.5px;line-height:1.65}
+.mark{font-weight:600}
+</style></head><body>
+<button class="menu" id="menu">☰ Разделы</button>
+<div class="app"><aside id="side"><div class="brand"><b>Индира Боисова</b>Стратегия к созвону 26.11<small>Воронка для группы «Разблокируй деньги рода» и личной работы</small></div>
+<nav><div class="ng">Начало</div><div class="ni" data-i="0"><button class="nb" data-i="0"><span class="n">◆</span><span class="nt">Карта сайта</span></button><div class="subs"></div></div><div class="ng">Стратегия</div><div class="ni" data-i="1"><button class="nb" data-i="1"><span class="n">·</span><span class="nt">Что разобрала</span></button><div class="subs"><a class="sub" data-sec="1" href="#s1-0">Что разобрала</a></div></div><div class="ni" data-i="2"><button class="nb" data-i="2"><span class="n">1</span><span class="nt">Выводы из анализа</span></button><div class="subs"><a class="sub" data-sec="2" href="#s2-0">Instagram</a><a class="sub" data-sec="2" href="#s2-1">Директ и Threads</a><a class="sub" data-sec="2" href="#s2-2">Твои старые боты</a><a class="sub" data-sec="2" href="#s2-3">Telegram-канал, интенсив и отзывы</a><a class="sub" data-sec="2" href="#s2-4">Конкуренты</a></div></div><div class="ni" data-i="3"><button class="nb" data-i="3"><span class="n">2</span><span class="nt">Твой запрос и что уже решено</span></button><div class="subs"><a class="sub" data-sec="3" href="#s3-0">Что ты хочешь</a><a class="sub" data-sec="3" href="#s3-1">Что уже решено ✅</a></div></div><div class="ni" data-i="4"><button class="nb" data-i="4"><span class="n">3</span><span class="nt">Что уже супер и не нужно менять</span></button><div class="subs"></div></div><div class="ni" data-i="5"><button class="nb" data-i="5"><span class="n">4</span><span class="nt">Что мешает набору и над чем работать</span></button><div class="subs"><a class="sub" data-sec="5" href="#s5-0">Что мешает сейчас</a><a class="sub" data-sec="5" href="#s5-1">Слепые зоны</a><a class="sub" data-sec="5" href="#s5-2">Над чем работаем в ближайшее время</a></div></div><div class="ni" data-i="6"><button class="nb" data-i="6"><span class="n">5</span><span class="nt">Твоя целевая аудитория</span></button><div class="subs"><a class="sub" data-sec="6" href="#s6-0">Как она говорит о проблеме</a><a class="sub" data-sec="6" href="#s6-1">Что она хочет</a><a class="sub" data-sec="6" href="#s6-2">Что её останавливает</a><a class="sub" data-sec="6" href="#s6-3">Кому мы не подходим</a></div></div><div class="ni" data-i="7"><button class="nb" data-i="7"><span class="n">6</span><span class="nt">Позиционирование</span></button><div class="subs"><a class="sub" data-sec="7" href="#s7-0">Почему сейчас не работает</a><a class="sub" data-sec="7" href="#s7-1">Как я предлагаю ❓</a><a class="sub" data-sec="7" href="#s7-2">Главная мысль 💡</a></div></div><div class="ni" data-i="8"><button class="nb" data-i="8"><span class="n">7</span><span class="nt">Продукты и цены</span></button><div class="subs"><a class="sub" data-sec="8" href="#s8-0">Продуктовая линейка 💡</a><a class="sub" data-sec="8" href="#s8-1">Мои мысли по ценам</a><a class="sub" data-sec="8" href="#s8-2">Разбор: варианты ❓</a><a class="sub" data-sec="8" href="#s8-3">Группа: что решить ❓</a></div></div><div class="ni" data-i="9"><button class="nb" data-i="9"><span class="n">8</span><span class="nt">Почему органика и зачем воронка</span></button><div class="subs"></div></div><div class="ni" data-i="10"><button class="nb" data-i="10"><span class="n">9</span><span class="nt">Мои принципы в воронке</span></button><div class="subs"><a class="sub" data-sec="10" href="#s10-0">Принцип 1. Главное: довести человека из Instagram в Telegram</a><a class="sub" data-sec="10" href="#s10-1">Принцип 2. Каждое действие человека видно в цифрах</a><a class="sub" data-sec="10" href="#s10-2">Принцип 3. Что бы человек ни делал, он попадает в дожимы</a><a class="sub" data-sec="10" href="#s10-3">Принцип 4. Юридическая чистота</a><a class="sub" data-sec="10" href="#s10-4">Принцип 5. Красиво и в твоём стиле</a></div></div><div class="ni" data-i="11"><button class="nb" data-i="11"><span class="n">10</span><span class="nt">Как я вижу твою воронку</span></button><div class="subs"><a class="sub" data-sec="11" href="#s11-0">Схема</a><a class="sub" data-sec="11" href="#s11-1">Почему вход через тест 💡</a><a class="sub" data-sec="11" href="#s11-2">Кодовые слова 💡</a></div></div><div class="ni" data-i="12"><button class="nb" data-i="12"><span class="n">11</span><span class="nt">Бесплатные материалы ❓</span></button><div class="subs"></div></div><div class="ni" data-i="13"><button class="nb" data-i="13"><span class="n">12</span><span class="nt">Твои старые боты</span></button><div class="subs"></div></div><div class="ni" data-i="14"><button class="nb" data-i="14"><span class="n">13</span><span class="nt">Как набираем группу</span></button><div class="subs"><a class="sub" data-sec="14" href="#s14-0">Старт 05.12 ✅</a><a class="sub" data-sec="14" href="#s14-1">Окна продаж 💡</a><a class="sub" data-sec="14" href="#s14-2">Сколько разборов нужно</a><a class="sub" data-sec="14" href="#s14-3">Цель первого месяца 💡</a><a class="sub" data-sec="14" href="#s14-4">Гипотезы, которые проверим 💡</a></div></div><div class="ni" data-i="15"><button class="nb" data-i="15"><span class="n">14</span><span class="nt">Контент: что снимать</span></button><div class="subs"><a class="sub" data-sec="15" href="#s15-0">Ритм 💡</a><a class="sub" data-sec="15" href="#s15-1">Формат и почему 💡</a><a class="sub" data-sec="15" href="#s15-2">Темы и почему 💡</a><a class="sub" data-sec="15" href="#s15-3">Что повторить</a><a class="sub" data-sec="15" href="#s15-4">Эзотерика ❓</a><a class="sub" data-sec="15" href="#s15-5">Упаковка 💡</a></div></div><div class="ni" data-i="16"><button class="nb" data-i="16"><span class="n">15</span><span class="nt">План до 03.12</span></button><div class="subs"><a class="sub" data-sec="16" href="#s16-0">Я делаю</a><a class="sub" data-sec="16" href="#s16-1">Ты делаешь</a><a class="sub" data-sec="16" href="#s16-2">После запуска</a></div></div><div class="ni" data-i="17"><button class="nb" data-i="17"><span class="n">16</span><span class="nt">Что дальше</span></button><div class="subs"></div></div><div class="ng">Приложения</div><div class="ni" data-i="18"><button class="nb" data-i="18"><span class="n">A</span><span class="nt">Вопросы к созвону</span></button><div class="subs"></div></div><div class="ni" data-i="19"><button class="nb" data-i="19"><span class="n">B</span><span class="nt">Ключевые цифры</span></button><div class="subs"></div></div></nav>
+<div class="tools">Текст <button id="fm" aria-label="Уменьшить текст">A−</button><button id="fp" aria-label="Увеличить текст">A+</button></div></aside>
+<main><section class="pg" style="--c:var(--c0);--t:var(--t0)"><h2>Карта сайта</h2><p class="lead">Нажми на карточку, чтобы открыть раздел.</p>
+<h3>Стратегия</h3><div class="cards"><a class="card" data-go="1" href="#b1" style="--cc:var(--c0)"><b>Что разобрала</b><span>С чего начали</span></a><a class="card" data-go="2" href="#b2" style="--cc:var(--c0)"><b>Выводы из анализа</b><span>Блок 1</span></a><a class="card" data-go="3" href="#b3" style="--cc:var(--c0)"><b>Твой запрос и что уже решено</b><span>Блок 2</span></a><a class="card" data-go="4" href="#b4" style="--cc:var(--c0)"><b>Что уже супер и не нужно менять</b><span>Блок 3</span></a><a class="card" data-go="5" href="#b5" style="--cc:var(--c0)"><b>Что мешает набору и над чем работать</b><span>Блок 4</span></a><a class="card" data-go="6" href="#b6" style="--cc:var(--c0)"><b>Твоя целевая аудитория</b><span>Блок 5</span></a><a class="card" data-go="7" href="#b7" style="--cc:var(--c0)"><b>Позиционирование</b><span>Блок 6</span></a><a class="card" data-go="8" href="#b8" style="--cc:var(--c0)"><b>Продукты и цены</b><span>Блок 7</span></a><a class="card" data-go="9" href="#b9" style="--cc:var(--c0)"><b>Почему органика и зачем воронка</b><span>Блок 8</span></a><a class="card" data-go="10" href="#b10" style="--cc:var(--c0)"><b>Мои принципы в воронке</b><span>Блок 9</span></a><a class="card" data-go="11" href="#b11" style="--cc:var(--c0)"><b>Как я вижу твою воронку</b><span>Блок 10</span></a><a class="card" data-go="12" href="#b12" style="--cc:var(--c0)"><b>Бесплатные материалы ❓</b><span>Блок 11</span></a><a class="card" data-go="13" href="#b13" style="--cc:var(--c0)"><b>Твои старые боты</b><span>Блок 12</span></a><a class="card" data-go="14" href="#b14" style="--cc:var(--c0)"><b>Как набираем группу</b><span>Блок 13</span></a><a class="card" data-go="15" href="#b15" style="--cc:var(--c0)"><b>Контент: что снимать</b><span>Блок 14</span></a><a class="card" data-go="16" href="#b16" style="--cc:var(--c0)"><b>План до 03.12</b><span>Блок 15</span></a><a class="card" data-go="17" href="#b17" style="--cc:var(--c0)"><b>Что дальше</b><span>Блок 16</span></a></div>
+<h3>Приложения</h3><div class="cards"><a class="card" data-go="18" href="#b18" style="--cc:var(--c2)"><b>Вопросы к созвону</b><span>Приложение A</span></a><a class="card" data-go="19" href="#b19" style="--cc:var(--c2)"><b>Ключевые цифры</b><span>Приложение B</span></a></div></section><section class="pg" style="--c:var(--c1);--t:var(--t1)"><h1>Стратегия: Индира Боисова</h1><p>Прежде чем что-то предлагать, я собрала и разобрала всё — все опирается на цифры и факты.</p>
+<h3 id="s1-0">Что разобрала</h3>
+<ul>
+<li><strong>Конкурентный анализ:</strong> 10 аккаунтов в нише рода, денег, гипнотерапии и расстановок. Их шапки, продукты, цены, лучшие рилсы, воронки. Ботов прошла сама изнутри.</li>
+<li><strong>Аналитику твоего Instagram:</strong> статистику за 90 и 30 дней, аудиторию, профиль, все рилсы за год с текстами и цифрами, все сторис.</li>
+<li><strong>Весь директ за год:</strong> 270 диалогов. Кто пишет, на какое слово, что спрашивает, где пропадает.</li>
+<li><strong>Threads:</strong> все посты и ответы.</li>
+<li><strong>Твоих старых ботов в BotHelp:</strong> 3 Telegram-бота и 2 сценария в Instagram, все тексты и цифры по каждому шагу.</li>
+<li><strong>Telegram-канал:</strong> выгрузила целиком, чтобы посмотреть, о чём ты пишешь, какие посты приводили клиентов, как ты объясняешь свои методики.</li>
+<li><strong>Чат интенсива:</strong> как шли эфиры и задания, что писали участницы, где им было сложно.</li>
+<li><strong>Канал с отзывами,</strong> скриншоты отзывов и отказов.</li>
+<li><strong>Все твои ответы на бриф и все голосовые:</strong> прослушала и разложила по клиентам, продуктам, ценам.</li>
+<li><strong>Программу группы</strong> и историю всех твоих продуктов.</li>
+</ul></section><section class="pg" style="--c:var(--c2);--t:var(--t2)"><h2>Блок 1. Выводы из анализа</h2><h3 id="s2-0">Instagram</h3>
+<ul>
+<li><strong>Тебя смотрят нужные люди:</strong> 78 % женщины, 68 % в возрасте 35-54 года. Это ровно те, кто тебе платит. Аудитория у тебя правильная, это отличная новость.</li>
+<li><strong>Охваты дала эзотерика:</strong> «ладони» 5,4 млн, «родинки ведьм» 859 тыс. Эти два рилса принесли почти весь рост подписчиков.</li>
+<li><strong>Но деньги принёс скромный рилс:</strong> кинезиологический тест, как ты говоришь, снятый на кухне, 850 просмотров, 2 оплаты. Значит, охваты и деньги у тебя приходят из разных роликов.</li>
+<li><strong>Рилсы про маму набрали больше, чем рилсы про деньги.</strong></li>
+<li><strong>С 24.10 рилсов нет,</strong> и просмотры за месяц упали на 59 %. Instagram любит регулярность!))</li>
+<li><strong>В шапке до сих пор прошедший интенсив 3-8.11,</strong> а по ссылке в шапке за месяц нажали 8 раз. Новый человек не понимает, куда ему идти.</li>
+</ul>
+<h3 id="s2-1">Директ и Threads</h3>
+<ul>
+<li><strong>Люди пишут, но теряются.</strong> За год 125 человек написали кодовое слово, ответили в директе 32, до диагностики дошли около 8.</li>
+<li><strong>На СЦЕНАРИЙ и ХОЧУ ты отвечала руками,</strong> часто через дни. За это время человек остывает.</li>
+<li><strong>Слов слишком много:</strong> СИЛА, 555, ЛЮБОВЬ, СЧАСТЬЕ, СЦЕНАРИЙ, ХОЧУ, РОД, РАЗБОР. Непонятно, что работает.</li>
+<li><strong>С эзотерических рилсов пишут про порчу, родинки и болезни.</strong> Ты отвечаешь подробно, но в работу эти люди не идут.</li>
+<li><strong>Лучше всего сработал простой пост в Threads 30.10:</strong> «беру несколько человек на безоплатный разбор, вот слоты, ставь +». Около 10 записей за сутки.</li>
+</ul>
+<h3 id="s2-2">Твои старые боты</h3>
+<ul>
+<li><strong>Через все боты прошло около 80 человек.</strong> Это тёплая база.</li>
+<li><strong>Лучше всего сработал тест «10 денежных убеждений»:</strong> начали 37 человек, до конца дошли около 27. Формат теста на твоей аудитории работает.</li>
+<li><strong>Но после результата теста теряется 70 % людей:</strong> три кнопки на выбор и видео на 11 минут. До предложения курса дошли 7.</li>
+<li><strong>Дожимы не уходят ни разу:</strong> из-за ошибки в настройке бот не догоняет тех, кто не нажал кнопку.</li>
+<li><strong>Почти каждая цепочка заканчивается «напиши мне в личку»,</strong> и дальше всё вручную.</li>
+<li><strong>В ботах звучат 4 разных твоих позиционирования:</strong> целитель про биополе, гипнотерапевт без магии, наставник для экспертов на 500+ тысяч, фитнес-тренер. Человек не понимает, к кому пришёл.</li>
+<li><strong>Есть сильная фраза:</strong> «Я не учу дышать маткой и не раздаю магические ритуалы на деньги. Её оставляем!</li>
+</ul>
+<h3 id="s2-3">Telegram-канал, интенсив и отзывы</h3>
+<ul>
+<li><strong>Отдельные длинные посты приводят клиентов.</strong> Пост «не живи» (11.02) привёл человека на диагностику и в работу.</li>
+<li><strong>Канал во многом велся для экспертов,</strong> это вижно. Для группы про деньги рода его нужно переориентировать.</li>
+<li><strong>Интенсив даёт результат быстро.</strong> Участницы сами пишут: «окупила в первый же день», «стала спокойнее», «научилась просить», «уплотнилась».</li>
+<li><strong>Но 5 дней по 3-4 часа для людей тяжело:</strong> часть участниц не успевала и отставала. Поэтому формат на 5 недель правильный (хорошее решение)</li>
+<li><strong>В отзывах повторяется одно:</strong> «психологи годами, а тут одна тема, и всё», «заменили пару лет терапии», «ты подробно объясняешь, что и зачем».</li>
+<li><strong>Покупают в основном свои:</strong> бывшие клиентки, сарафан, участницы твоих продуктов. Холодные пока почти не покупают.</li>
+</ul>
+<h3 id="s2-4">Конкуренты</h3>
+<ul>
+<li><strong>Почти все крупные в нише продают через магию, ведьм, проклятия и «дар».</strong> Спокойная позиция «род и деньги без магии и запугивания, через гипнотерапию и тело» почти свободна. Это твоё место)</li>
+<li><strong>Гипнотерапевтов, которые работают с родом и деньгами, почти нет.</strong> Регрессологи продают «прошлые жизни», а ты практики голосом, которые меняют сегодняшнюю жизнь, что тоже подкупает.</li>
+<li><strong>Самые большие хиты ниши про отца и маму,</strong> а не про деньги. Деньги работают как обещание в шапке и в продукте.</li>
+<li><strong>Почти у всех есть лёгкий шаг между бесплатным и дорогим.</strong> У тебя сразу с бесплатной диагностики на 35 000-80 000.</li>
+<li><strong>Бесплатный разбор работает, когда перед ним есть фильтр:</strong> человек сначала получает подарок, узнаёт себя и заполняет короткую анкету.</li>
+<li><strong>Самая похожая на тебя по продукту женщина ведёт людей в бот через ТЕСТ:</strong> человек за 3 минуты получает название своего сценария, узнаёт себя и идёт на разбор. В моих проектах в целом сейчас очень заходят тесты: у психолога в продюсировании сейчас солд аут по группам, в личной терапии и лист ожидание на несколько месяцев вперед, себе я тоже планирую делать в боте тест. Эта тема качает.</li>
+<li><strong>Формат группы на 5 недель почти никто не делает:</strong> обычно либо дешёвый интенсив на 2 недели, либо дорогое обучение на специалиста.</li>
+<li><strong>Твоя цена в коридоре:</strong> сессия 20 000 как у других. Группа за 35 000 выше открытых цен в нише, поэтому перед покупкой нужен разговор с тобой личный.</li>
+</ul>
+<p>Эти выводы легли основой твоей стратегии на ближайшее время!)</p></section><section class="pg" style="--c:var(--c3);--t:var(--t3)"><h2>Блок 2. Твой запрос и что уже решено</h2><h3 id="s3-0">Что ты хочешь</h3>
+<p>Монетизировать родовую тему и поставить её как бизнес-структуру: регулярные наборы в группу и стабильная личная работа.</p>
+<h3 id="s3-1">Что уже решено ✅</h3>
+<ul>
+<li><strong>Группа на 5 недель «Разблокируй деньги рода»,</strong> 35 000 ₽ (30 000 ₽ по рекомендации). <strong>Старт 05.12.</strong></li>
+<li><strong>Сразу продаём личную работу:</strong> комплекс из 4 сессий.</li>
+<li><strong>Аудитория:</strong> женщины с денежными и родовыми темами. С экспертами больше не работаешь (не хочется)</li>
+<li><strong>Цель на декабрь, январь и февраль:</strong> группа на 20-30 человек в поток плюс личная работа.</li>
+<li><strong>Воронка в BotHelp,</strong> готова не позднее 03.12 (уже в начале недели отправлю черновик на согласование)</li>
+</ul></section><section class="pg" style="--c:var(--c4);--t:var(--t4)"><h2>Блок 3. Что уже супер и не нужно менять</h2><ul>
+<li><strong>Ты продаёшь в разговоре.</strong> В марте из 8 диагностик купили 4 - конверсия огонь! Твоя сила в личном контакте, её сохраняем.</li>
+<li><strong>Продукт даёт результат.</strong> Отзывы после интенсива оч сильные и по фактам.</li>
+<li><strong>Формат 5 недель.</strong> Ты сама увидела, что 5 дней это слишком плотно, и переделала. Отлично!</li>
+<li><strong>Цена 35 000.</strong> Твоя логика верная: «до 30 тысяч люди ищут волшебную пилюлю», поэтому нет смысла снижаться вообще.</li>
+<li><strong>Аудитория в Instagram правильная</strong> по полу и возрасту, меньше геморра))</li>
+<li><strong>Голос и подача:</strong> живо, с юмором, «без соплей». Это выделяет тебя на фоне эзотерической ниши! На этом тоже делаем акцент)</li>
+<li><strong>Готовые материалы:</strong> подкаст про род и деньги, практики, кинезиологический тест, записи интенсива.</li>
+<li><strong>Техника и оплата:</strong> всё официально: ИП, оферта, BotHelp, Продамус. Есть оплаты из-за рубежа и кредит через «Ресурс развития».</li>
+</ul></section><section class="pg" style="--c:var(--c5);--t:var(--t5)"><h2>Блок 4. Что мешает набору и над чем работать</h2><h3 id="s5-0">Что мешает сейчас</h3>
+<ul>
+<li><strong>Набора в группу нет,</strong> потому что продвижения не было: пост в канале и сообщение в чате интенсива.</li>
+<li><strong>Размытое позиционирование.</strong> В профиле «целитель, алхимик», в ботах 4 разные роли. Человек не понимает, с чем к тебе идти и почему именно к тебе.</li>
+<li><strong>Охваты не от той аудитории.</strong> Эзотерика приводит тех, кто ищет снятие порчи, а не группу про деньги рода + они как раз ищут волшебную таблетку и не готовы платить нормально)</li>
+<li><strong>После кодового слова человек теряется:</strong> цепочки обрываются на «напиши в личку», дожимы не работают.</li>
+<li><strong>Бесплатная диагностика не продаёт новым:</strong> люди «уходят подумать», не понимая, какой результат получат.</li>
+<li><strong>Нет базы.</strong> Люди проходят и исчезают, им нельзя написать ещё раз, либо запаришься искать их и вспоминать, кто что хотел.</li>
+<li><strong>Всё держится на тебе:</strong> переписки, диагностики, сессии по 3-4 часа, важно делегировать часть боты, к чему ты и пришла)</li>
+</ul>
+<h3 id="s5-1">Слепые зоны</h3>
+<ul>
+<li><strong>Ты продаёшь «целительство», а клиентка ищет решение своей проблемы.</strong> Она не говорит «у меня родовая программа», она говорит «деньги утекают» и «опять то же самое», надо иметь ввиду их “ЯЗЫК” и словечки)</li>
+<li><strong>Продукт не виден.</strong> В профиле и ботах почти нигде нет группы, понятной цены и понятного шага что делать дальше.</li>
+</ul>
+<h3 id="s5-2">Над чем работаем в ближайшее время</h3>
+<ol>
+<li>Одна понятная позиция.</li>
+<li>Воронка, которая доводит человека до разговора с тобой, убираем ручные постоянные переписки (это надо, но только когда человек уже в боте часть узнал).</li>
+<li>Регулярный контент, который приводит в воронку нужных людей.</li>
+<li>Набор в группу через своих и разборы.</li>
+</ol></section><section class="pg" style="--c:var(--c0);--t:var(--t0)"><h2>Блок 5. Твоя целевая аудитория</h2><p>Женщина 33-48 лет, Россия и СНГ, часть живёт за границей. Работает в найме или ведёт небольшое своё дело. Часто «всё тащит на себе»: работа, дети, родители, иногда муж.</p>
+<p>Много пробовала: психологи годами, расстановки, курсы, практики. Головой всё понимает, а в жизни повторяется одно и то же. Устала разбираться сама.</p>
+<p>Приходит в момент перехода или кризиса, «когда силы на исходе». Самая частая фраза: <strong>«Я не понимаю, что происходит»</strong>.</p>
+<h3 id="s6-0">Как она говорит о проблеме</h3>
+<ul>
+<li>«Зарабатываю, но деньги уходят на долги»</li>
+<li>«Много работаю, а доход не такой, как хочу»</li>
+<li>«Всё понимаю, всё знаю, но ничего не меняется»</li>
+<li>«Начинаю и бросаю, или что-то происходит»</li>
+<li>«Усталость фоновая, тревога, опустошение»</li>
+<li>«Выбираю не тех, всё по одному сценарию»</li>
+<li>«Не могу отказать, делаю для других в ущерб себе»</li>
+<li>«Психологи годами, а воз и ныне там»</li>
+</ul>
+<h3 id="s6-1">Что она хочет</h3>
+<p>Перестать жить на выживании. Чтобы деньги задерживались, чтобы было спокойно, чтобы перестать тащить всё на себе и наконец жить свою жизнь.</p>
+<h3 id="s6-2">Что её останавливает</h3>
+<ul>
+<li>Деньги: рассрочки, долги, «надо просить у мужа».</li>
+<li>«Попозже», «подумаю».</li>
+<li>Непонятно, какой будет результат.</li>
+<li>При этом доверие к тебе высокое: «я вам доверяю».</li>
+</ul>
+<h3 id="s6-3">Кому мы не подходим</h3>
+<ul>
+<li>Тем, кто ждёт волшебную таблетку без своих действий.</li>
+<li>Тем, кто хочет снять порчу или сделать ритуал.</li>
+</ul></section><section class="pg" style="--c:var(--c1);--t:var(--t1)"><h2>Блок 6. Позиционирование</h2><h3 id="s7-0">Почему сейчас не работает</h3>
+<p>Сейчас в профиле «Целитель | Алхимик», «Вижу то, что за гранью осознаний». В ботах ты то целитель, то наставник для экспертов, то гипнотерапевт без магии. Человек с проблемой «деньги утекают» не понимает, что это про него, и почему идти нужно именно к тебе.</p>
+<h3 id="s7-1">Как я предлагаю ❓</h3>
+<p><strong>Деньги в обещании, вход через жизнь.</strong></p>
+<ul>
+<li><strong>Шапка и продукт:</strong> про деньги и род.</li>
+<li><strong>Вход (рилсы, подарок в боте):</strong> через маму и папу, сценарии, состояние, отношения.</li>
+<li><strong>Внутри бота и на разборе:</strong> показываем, как всё это связано с деньгами.</li>
+</ul>
+<p><strong>Твоё место на рынке:</strong> род и деньги без магии и запугивания. Гипнотерапия, тело и практики голосом.</p>
+<p>Варианты для шапки:</p>
+<ol>
+<li>«Помогаю женщинам выйти из сценария выживания: деньги, род, отношения»</li>
+<li>«Когда психологи годами, а ничего не меняется. Работаю глубже: род и подсознание»</li>
+<li>«Род и деньги без магии и запугивания. Гипнотерапия, практики голосом»</li>
+</ol>
+<p>Твоя фраза, которая идеально сюда ложится:</p>
+<pre class="plain"><code>Я не учу «дышать маткой» и не раздаю магические ритуалы на деньги. Я работаю с подсознанием, родовыми сценариями и телом.</code></pre>
+<h3 id="s7-2">Главная мысль 💡</h3>
+<p><strong>«Ты не ленивая и не слабая. Ты живёшь сценарий, который тебе передали. Его можно увидеть и выйти из него».</strong></p></section><section class="pg" style="--c:var(--c2);--t:var(--t2)"><h2>Блок 7. Продукты и цены</h2><h3 id="s8-0">Продуктовая линейка 💡</h3>
+<ul>
+<li><strong>Бесплатно:</strong> подарок в боте и подкаст про род и деньги + тест</li>
+<li><strong>Разбор с тобой (3-5к):</strong> 30-40 минут в зуме.</li>
+<li><strong>Группа «Разблокируй деньги рода»:</strong> 5 недель, 35 000 ₽.</li>
+<li><strong>Личная работа:</strong> 4 сессии [80 000 или 70 000 ❓], сопровождение 100 000 ₽.</li>
+<li><strong>Для тех, кто пока не готов к группе:</strong> гипноклуб [3 290 или 3 490 ❓] в месяц.</li>
+</ul>
+<h3 id="s8-1">Мои мысли по ценам</h3>
+<ul>
+<li><strong>Сессия 20 000 в коридоре рынка.</strong> Менять не нужно.</li>
+<li><strong>Группа 35 000 выше открытых цен в нише.</strong> Это нормально, но значит, что почти никто не купит её сразу из бота. Перед покупкой нужен разговор с тобой.</li>
+<li><strong>Между бесплатным и дорогим нужен шаг.</strong> У конкурентов это разборы, интенсивы или диагностики от 555 до 4 900 ₽. У тебя уже был якорь «0 ₽ вместо 5 000 ₽».</li>
+<li><strong>Комплекс 4 сессий продаём после группы и после разбора:</strong> «группа показала, где корень, в личной работе идём глубже».</li>
+</ul>
+<h3 id="s8-2">Разбор: варианты ❓</h3>
+<ol>
+<li><strong>Бесплатный разбор, но только после бота и анкеты.</strong> Плюс: так в октябре записалось около 10 человек. Минус: твоё время. Но тут можно хорошо проводить квалификацию в переписке и звать на созвон только целевых.</li>
+<li><strong>Платная диагностика 5 000 ₽ с зачётом в группу или сессии.</strong> Плюс: приходят готовые платить. Минус: меньше людей.</li>
+<li><strong>Оба:</strong> бесплатные разборы с лимитом во время набора (как их колчество, так и время встречи короче должно быть), платная диагностика как постоянное окошко в личную работу (потом типа эта сумма вычитается из суммы личной работы)</li>
+</ol>
+<p><em>💡 Я рекомендую вариант 3.</em></p>
+<h3 id="s8-3">Группа: что решить ❓</h3>
+<ul>
+<li>День и время эфиров.</li>
+<li>Тариф с личной сессией (например, «Группа + 1 сессия»).</li>
+<li>Рассрочка: «Ресурс развития» или Продамус. Или только кредит?</li>
+<li>Предоплата для брони места.</li>
+<li>Условие для участниц интенсива: например, зачесть 4 500.</li>
+</ul></section><section class="pg" style="--c:var(--c3);--t:var(--t3)"><h2>Блок 8. Почему органика и зачем воронка</h2><p>Сейчас самый актуальный способ продвигаться на рынке это органический трафик: рилсы, Threads, Telegram. Рилсы бесплатно приводят новых людей, у тебя это уже доказано миллионами просмотров.</p>
+<p>Но охваты сами по себе ничего не продают. У тебя уже были миллионы просмотров, а новых клиентов почти не пришло. Чтобы просмотры превращались в деньги, нужна понятная воронка: путь, по которому человек из рилса доходит до разговора с тобой и покупки.</p></section><section class="pg" style="--c:var(--c4);--t:var(--t4)"><h2>Блок 9. Мои принципы в воронке</h2><p>Я специалист по продажам, поэтому делаю воронки не «выдал пользу и до свидания». Моя воронка доводит человека до покупки и не теряет никого.</p>
+<h3 id="s10-0">Принцип 1. Главное: довести человека из Instagram в Telegram</h3>
+<p>Большинство экспертов считают, что выдать бесплатный материал по кодовому слову достаточно. Это не так.</p>
+<ul>
+<li>Человек пишет слово под рилсом, отвлекается, сообщение падает в «Запросы», и он про тебя забывает. Это сплошь и рядом: конверсия перехода из инсты в бот низкая.</li>
+<li>В Instagram мы не можем потом ему написать: автоматически можно писать только сутки после слова.</li>
+<li>А в Telegram-боте человек попадает в твою базу. Ему можно писать, прогревать, звать на разбор и в группу, там видно ники, даже если он заблокирует бота.</li>
+</ul>
+<p>Поэтому первая задача: как можно больше людей должны дойти из Instagram в бота.</p>
+<ul>
+<li><strong>Проверяем подписку,</strong> чтобы подарок получали только подписчики, и аккаунт рос.</li>
+<li><strong>Серия дожимов в директе:</strong> если человек не перешёл в бот, бот мягко напоминает. Голосовыми, текстом, разными заходами.</li>
+</ul>
+<h3 id="s10-1">Принцип 2. Каждое действие человека видно в цифрах</h3>
+<p>Я человек-табличка, для меня всё есть цифры. Поэтому в боте каждое действие отмечается тегом:</p>
+<ul>
+<li>когда человек зашёл;</li>
+<li>какую кнопку нажал или не нажал;</li>
+<li>куда пошёл дальше;</li>
+<li>на каком шаге остановился. и почему.</li>
+</ul>
+<p>По этим тегам мы ведём человека по разным веткам. Посмотрел подарок, но не записался? Одно сообщение. Записался, но не пришёл? Другое. Нажал «оплатить», но не оплатил? Третье.</p>
+<h3 id="s10-2">Принцип 3. Что бы человек ни делал, он попадает в дожимы</h3>
+<p>Не купил и не записался? Он не пропадает. Ему приходят дожимы, разные по формату:</p>
+<ul>
+<li><strong>твоё живое касание:</strong> «Привет, это Индира, пишу лично»;</li>
+<li><strong>отзывы участниц;</strong></li>
+<li><strong>история клиентки:</strong> что было, что всплыло, что изменилось;</li>
+<li><strong>польза:</strong> подкаст, короткая практика, упражнение, видео;</li>
+<li><strong>кусочек изнутри группы;</strong></li>
+<li><strong>твоя личная история;</strong></li>
+<li><strong>твои другие соцсети;</strong></li>
+<li><strong>финальное сообщение,</strong> которое мягко закрывает цикл.</li>
+</ul>
+<p>И в каждом сообщении есть кнопка записаться к тебе на разбор или в группу.</p>
+<h3 id="s10-3">Принцип 4. Юридическая чистота</h3>
+<ul>
+<li><strong>Согласие в первом сообщении.</strong> Когда человек заходит в бот, он соглашается с политикой конфиденциальности, на обработку персональных данных и на получение рассылки. Без этого мы не имеем права ему ничего присылать.</li>
+<li><strong>Слово СТОП.</strong> У человека всегда есть возможность написать СТОП, и бот больше ничего ему не присылает.</li>
+<li><strong>Документы:</strong> политику конфиденциальности и согласия я помогу составить на основе твоих данных. Я не юрист, но базовые документы сделать помогу.</li>
+</ul>
+<p>[покажу примеры, как это выглядит в боте]</p>
+<h3 id="s10-4">Принцип 5. Красиво и в твоём стиле</h3>
+<ul>
+<li>Баннеры в боте в твоей стилистике: тёмный фон, золото, атмосфера. Сделаны через нейросети, но стильно, это не бросается в глаза.</li>
+<li>Всё автоматизировано, ничего не нужно делать руками.</li>
+<li>От тебя нужно одно: много контента, чтобы люди приходили в бота. Дальше они прогреваются сами.</li>
+</ul>
+<p>[покажу примеры воронок клиентов]</p></section><section class="pg" style="--c:var(--c5);--t:var(--t5)"><h2>Блок 10. Как я вижу твою воронку</h2><p>Подробную схему бота со всеми сообщениями я нарисую отдельно и пришлю тебе на согласование. Здесь коротко, как это будет работать.</p>
+<h3 id="s11-0">Схема</h3>
+<ol>
+<li><strong>Рилс, пост в Threads, сторис или пост в канале</strong> с кодовым словом.</li>
+<li><strong>Instagram:</strong> бот отвечает под комментарием и в директ сам, проверяет подписку, даёт ссылку на Telegram-бот. Если не перешла, дожимы за сутки несколько мягких (покажу)</li>
+<li><strong>Telegram-бот:</strong> твой кружок-приветствие (создаем доверие) → согласие → подарок → твоё голосовое, как это связано с деньгами и родом → подкаст.</li>
+<li><strong>Анкета и запись на разбор:</strong> 3 коротких вопроса, чтобы ты пришла подготовленной и квалифицировала человека.</li>
+<li><strong>Разбор с тобой:</strong> продажа группы или 4 сессий.</li>
+<li><strong>Продажа группы в боте:</strong> описание, программа, кому подходит, тарифы и оплата.</li>
+<li><strong>Дожимы:</strong> 5-7 сообщений за 2 недели для тех, кто не записался и не купил.</li>
+<li><strong>«Задать вопрос»</strong> на любом шаге: приходит тебе.</li>
+</ol>
+<h3 id="s11-1">Почему вход через тест 💡</h3>
+<ul>
+<li><strong>Твой старый тест уже доказал себя:</strong> его прошли около 27 человек из 37, лучший результат среди всех твоих ботов.</li>
+<li><strong>Самый близкий к тебе конкурент тоже ведёт в бот через тест:</strong> человек за 3 минуты узнаёт себя и получает название своего сценария.</li>
+<li><strong>Тест сам фильтрует:</strong> на разбор приходят те, кто уже узнал себя и понимает, зачем идёт + ты сможешь посмотреть его ответы и знать, к чему готовиться.</li>
+<li><strong>Что поменяем по сравнению со старым:</strong> вопросы под твою клиентку, а не под экспертов, и после результата сразу твоё голосовое и запись на разбор, без длинного видео.</li>
+</ul>
+<h3 id="s11-2">Кодовые слова 💡</h3>
+<p>Вместо восьми слов два:</p>
+<ul>
+<li><strong>слово главного входа</strong> ❓: СЦЕНАРИЙ, ПАПА, МАМА или РОД;</li>
+<li><strong>РАЗБОР:</strong> сразу запись на разбор.</li>
+</ul>
+<p>Старые слова (СИЛА, 555, ЛЮБОВЬ, СЧАСТЬЕ) переводим на новый бот: под старыми рилсами их продолжают писать (я тут подредачу все).</p></section><section class="pg" style="--c:var(--c0);--t:var(--t0)"><h2>Блок 11. Бесплатные материалы ❓</h2><p>Что можем дарить на входе. Все варианты ведут к деньгам, но заходят через родителей, сценарии или состояние.</p>
+<ol>
+<li><strong>Тест «Какой сценарий рода ты проживаешь»:</strong> выживальщица, спасательница, «хорошая девочка», жертва, «не живи». После результата твоё голосовое (подобьем автоматически).</li>
+<li><strong>Кинезиологический тест «Установки мамы и папы».</strong> Твоё видео примерно на 2 минуты с объяснением и твои аудио. Уже приносил платящих клиентов, у конкурентов такого нет.</li>
+<li><strong>Практика голосом «Встреча с отцом» или «Мама»,</strong> 10-15 минут. Показывает твою силу: голос и гипнотерапию.</li>
+<li><strong>Первый урок группы «Фигура отца»</strong> из записей интенсива. Лучше всего продаёт именно группу.</li>
+<li><strong>Подкаст «Как род управляет твоими деньгами».</strong> Готов, но длинный для первого шага, лучше вторым.</li>
+</ol>
+<p>💡 Мой выбор: тест (1) как главный вход, кинезиологический тест (2) или практика (3) вторым подарком внутри бота.</p>
+<p>Какие у тебя есть идеи? Может, есть материал, о котором я не знаю?</p></section><section class="pg" style="--c:var(--c1);--t:var(--t1)"><h2>Блок 12. Твои старые боты</h2><p>Я их изучила. Как есть использовать их не будем: тексты про биополе и наставничество для экспертов размывают новую позицию.</p>
+<p>Что делаем:</p>
+<ul>
+<li><strong>Выгружаем базу подписчиков всех трёх Telegram-ботов,</strong> около 80 человек, и делаем рассылку с анонсом группы и разборов.</li>
+<li><strong>Ставим на паузу старые сценарии и автоответы в Instagram,</strong> иначе они будут конфликтовать с новыми словами.</li>
+<li><strong>Старые слова переводим на новый бот.</strong></li>
+<li><strong>Забираем в новую воронку:</strong> механику теста, твой чек-лист «Посмотри, есть ли у тебя что-то из этого», фразу про «дышать маткой», условия разбора («в одиночестве, в трезвом и отдохнувшем состоянии»).</li>
+</ul></section><section class="pg" style="--c:var(--c2);--t:var(--t2)"><h2>Блок 13. Как набираем группу</h2><h3 id="s14-0">Старт 05.12 ✅</h3>
+<p>Воронка будет готова 03.12, а новые люди из рилсов прогреваются не за день. Поэтому первый поток набираем в основном через своих и разборы, а воронка начинает работать на следующий поток.</p>
+<h3 id="s14-1">Окна продаж 💡</h3>
+<ol>
+<li><strong>Свои:</strong> участницы интенсива, покупательницы гипноклуба, бывшие и текущие клиентки. Личное сообщение каждой голосом.</li>
+<li><strong>Старая база ботов:</strong> около 80 человек, рассылка с анонсом.</li>
+<li><strong>Разборы «беру несколько человек, ставь +»:</strong> Threads, сторис, канал. Уже сработало.</li>
+<li><strong>Воронка:</strong> новые люди из рилсов, с 03.12.</li>
+<li><strong>Партнёры ❓:</strong> Настя-генеалог и другие коллеги (надо договориться)</li>
+</ol>
+<h3 id="s14-2">Сколько разборов нужно</h3>
+<p>По твоим же цифрам: тёплые после разговора покупают примерно каждый второй-четвёртый, холодные примерно каждый восьмой. Чтобы набрать 10 человек, нужно 20-40 разборов с тёплыми.</p>
+<h3 id="s14-3">Цель первого месяца 💡</h3>
+<p><strong>Набрать в Telegram-бот 300-500 человек.</strong> Это минимум, при котором появляется статистика: какие кнопки нажимают, какие продукты интересуют, где уходят. По этим цифрам проверяем гипотезы и докручиваем воронку.</p>
+<h3 id="s14-4">Гипотезы, которые проверим 💡</h3>
+<ol>
+<li><strong>ТЕСТ на входе даёт больше переходов в бота,</strong> чем подкаст или практика.</li>
+<li><strong>Вход через маму и папу приводит больше людей,</strong> чем вход через деньги.</li>
+<li><strong>Бесплатный разбор после анкеты продаёт лучше,</strong> чем бесплатная диагностика без фильтра.</li>
+<li><strong>Платная диагностика 5 000 ₽ с зачётом</strong> даёт меньше, но более готовых клиентов.</li>
+<li><strong>Голосовые дожимы в директе</strong> доводят в бота больше людей, чем текстовые.</li>
+<li><strong>Еженедельный пост «беру N человек на разбор»</strong> стабильно даёт записи.</li>
+<li><strong>Тариф «Группа + личная сессия»</strong> чаще ведёт в комплекс 4 сессий.</li>
+</ol></section><section class="pg" style="--c:var(--c3);--t:var(--t3)"><h2>Блок 14. Контент: что снимать</h2><p>Главная задача контента сейчас: регулярно приводить людей в бота. Пробуем разные форматы и смотрим, что даёт больше переходов.</p>
+<h3 id="s15-0">Ритм 💡</h3>
+<ul>
+<li><strong>3-4 рилса в неделю,</strong> слово в начале и в конце ролика.</li>
+<li><strong>Снимать пачкой:</strong> один день в неделю, 4-6 роликов. Монтажёры собирают.</li>
+<li><strong>Threads:</strong> короткие мысли 3-4 раза в неделю и раз в неделю пост «беру на разбор» (ставишь просто на автопостинг).</li>
+<li><strong>Telegram:</strong> 2-3 длинных поста в неделю, как «не живи».</li>
+</ul>
+<h3 id="s15-1">Формат и почему 💡</h3>
+<ul>
+<li><strong>Ты в кадре, говоришь, крупная плашка с первой фразой.</strong> Так снимают почти все в нише.</li>
+<li><strong>Можно без лица:</strong> руки, расстановочные фигурки, блокнот. У конкурентов на твоём уровне такие рилсы с вопросом про деньги или отца заходят лучше остальных.</li>
+<li><strong>Повторять удачное.</strong> Один и тот же хук у конкурента вышел 4 раза и каждый раз набрал 100+ тыс. Уже сейчас пора дублировать твои залетевшие рилсы, кидать в пробный режим и тестировать)</li>
+</ul>
+<h3 id="s15-2">Темы и почему 💡</h3>
+<ul>
+<li><strong>Мама и папа.</strong> Самые большие хиты ниши, и твои рилсы про маму набрали больше, чем про деньги.</li>
+<li><strong>Сценарии:</strong> выживальщица, спасательница, «отдыхать будешь на том свете». Именно так говорят твои клиентки.</li>
+<li><strong>Состояние:</strong> «всё понимаю, а ничего не меняется». Самая частая фраза на твоих диагностиках.</li>
+<li><strong>Деньги через бытовую боль:</strong> долги, кредиты, «доход растёт, и что-то ломается». Конкретно, а не «денежные блоки».</li>
+<li><strong>Конкретные предки:</strong> раскулаченные, бабушка, которая всё тащила. Узнаваемая семейная история цепляет сильнее абстрактного «рода».</li>
+</ul>
+<p>В конце каждого ролика мостик к деньгам и роду и слово.</p>
+<h3 id="s15-3">Что повторить</h3>
+<ul>
+<li>Рилс про кинезиологический тест: он принёс деньги.</li>
+<li>Пост «не живи» в формате рилса.</li>
+</ul>
+<h3 id="s15-4">Эзотерика ❓</h3>
+<p>Убирать совсем не обязательно: она даёт охваты. Варианты: оставить как вход, но в конце вести на род и деньги, или оставить только в сторис для прогрева своей аудитории.</p>
+<h3 id="s15-5">Упаковка 💡</h3>
+<ul>
+<li><strong>Шапка:</strong> заменить сразу, вставить ссылку на бота.</li>
+<li><strong>Закреп в Telegram-канале:</strong> кто ты, подарок, разбор, группа, вставить ссылку на бота везде.</li>
+<li><strong>Актуальные:</strong> «Отзывы» обновить отзывами с интенсива (обезличенно), добавить «Группа».</li>
+</ul></section><section class="pg" style="--c:var(--c4);--t:var(--t4)"><h2>Блок 15. План до 03.12</h2><h3 id="s16-0">Я делаю</h3>
+<ul>
+<li>Финальная стратегия по итогам созвона.</li>
+<li>Схема бота со всеми сообщениями тебе на согласование.</li>
+<li>Тексты бота, автоответы и дожимы в твоем стиле.</li>
+<li>Баннеры для бота в твоей стилистике.</li>
+<li>Помогаю составить политику конфиденциальности и согласия.</li>
+<li>Сборка и настройка воронки в BotHelp, тестирование.</li>
+<li>Текст сообщения для своих и рассылки по старой базе (помогу для запуска)</li>
+</ul>
+<h3 id="s16-1">Ты делаешь</h3>
+<ul>
+<li>Данные для документов: ФИО, ИП, ИНН, контакты, почта и тд.</li>
+<li>Если уже есть - скинуть политику конфиденциальности и согласия на обратку перс данных и рекламные и инфо сообщения (нет - помогу сделать)</li>
+<li>Ссылки на оплату в Продамусе.</li>
+<li>Записываешь подарок, подкаст и кружок-приветствие (дам сценарии)</li>
+<li>Пишешь своим по моему тексту.</li>
+<li>Снимаешь первые 4-6 рилсов со словом.</li>
+<li>Согласуешь схему бота и тексты.</li>
+</ul>
+<h3 id="s16-2">После запуска</h3>
+<ul>
+<li>Смотрим цифры каждую неделю: сколько написали слово, дошли в бота, записались на разбор, купили.</li>
+<li>Правишь то, что проседает + всех дожимаешь в лс.</li>
+</ul></section><section class="pg" style="--c:var(--c5);--t:var(--t5)"><h2>Блок 16. Что дальше</h2><p>Моя задача сейчас: выстроить тебе фундамент. Понятную позицию, воронку, которая работает автоматически, и план набора.</p>
+<p>Дальше 2 пути: работаешь с этим самостоятельно, снимаешь много контента и ведёшь людей в бота, или идём дальше вместе и разбираемся с продажами глубже.</p></section><section class="pg" style="--c:var(--c0);--t:var(--t0)"><h2>Вопросы к созвону</h2><ol>
+<li>Расписание группы: день, время эфиров, длительность.</li>
+<li>Что входит в 35 000? Будет ли тариф с личной сессией?</li>
+<li>Предоплата, рассрочка, иностранные оплаты и кредит через «Ресурс развития»: какие условия и как подключаем к боту?</li>
+<li>Условие для участниц интенсива?</li>
+<li>Разбор: бесплатный, платный или оба? Платная диагностика 5 000 или 3 000?</li>
+<li>4 сессии: 80 000 или 70 000?</li>
+<li>Главный вход: тест, кинезиологический тест, практика «Отец» или первый урок группы?</li>
+<li>Деньги в обещании, а вход шире: согласна?</li>
+<li>Кодовое слово: СЦЕНАРИЙ, ПАПА, МАМА или РОД?</li>
+<li>Шапка: какой вариант?</li>
+<li>Эзотерика в контенте: как вход или только в сторис?</li>
+<li>День про тайны рода: упоминаем публично?</li>
+<li>Настя-генеалог: договорились?</li>
+<li>Гипноклуб: 3 290 или 3 490? Курс «Разреши себе богатство» и гипноклуб: это один продукт или два?</li>
+<li>Наставничество для экспертов «Масштаб и деньги»: закрываем?</li>
+<li>В какой Telegram-бот собираем воронку: новый или один из старых?</li>
+<li>Бот «Родовые сценарии» (@RODDIAGNOST_BOT): это твой черновик?</li>
+<li>Можно сделать рассылку по базе старых ботов?</li>
+<li>Сколько лет практики в гипнотерапии и расстановках?</li>
+</ol></section><section class="pg" style="--c:var(--c1);--t:var(--t1)"><h2>Ключевые цифры</h2><p><strong>Instagram</strong></p>
+<ul>
+<li>2 559 подписчиков.</li>
+<li>90 дней: 5,17 млн просмотров, +1 070 подписчиков.</li>
+<li>30 дней: 78 тыс. просмотров (−59 %), 8 кликов по ссылке в шапке.</li>
+<li>Женщины 78 %, 35-54 года 68 %.</li>
+<li>Директ за год: 125 написали слово, 32 ответили, около 8 дошли до диагностики.</li>
+</ul>
+<p><strong>Старые боты</strong></p>
+<ul>
+<li>Около 80 человек прошли через все боты.</li>
+<li>Тест «10 денежных убеждений»: начали 37, дошли до конца около 27, до предложения курса 7.</li>
+</ul>
+<p><strong>Цены</strong></p>
+<ul>
+<li>Группа: 35 000 ₽ (30 000 ₽ по рекомендации).</li>
+<li>Сессия: 20 000 ₽. 4 сессии: 80 000 ₽ ❓. Сопровождение: 100 000 ₽.</li>
+</ul>
+<p><strong>Даты</strong></p>
+<ul>
+<li>Воронка готова: не позднее 03.12.2026.</li>
+<li>Старт группы: 05.12.2026.</li>
+<li>Цель первого месяца: 300-500 человек в Telegram-боте.</li>
+</ul></section>
+<div class="pager"><button class="pv" id="pv"></button><button class="nx" id="nx"></button></div></main></div>
+<script>
+(function(){
+  try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+  var pages=[].slice.call(document.querySelectorAll('.pg'));
+  var items=[].slice.call(document.querySelectorAll('.ni'));
+  var N=pages.length, cur=0;
+  var colors=getComputedStyle(document.documentElement);
+  items.forEach(function(it,i){it.style.setProperty('--c','var(--c'+(i%6)+')');it.style.setProperty('--t','var(--t'+(i%6)+')');});
+  function label(i){var b=items[i].querySelector('.nt');return b?b.textContent:'';}
+  function show(i,keep){
+    if(i<0||i>=N)return; cur=i;
+    pages.forEach(function(p,k){p.classList.toggle('on',k===i)});
+    items.forEach(function(p,k){p.classList.toggle('on',k===i)});
+    var pv=document.getElementById('pv'),nx=document.getElementById('nx');
+    pv.hidden=i===0; nx.hidden=i===N-1;
+    pv.innerHTML=i>0?'<small>Назад</small>'+label(i-1):'';
+    nx.innerHTML=i<N-1?'<small>Дальше</small>'+label(i+1):'';
+    if(!keep){window.scrollTo(0,0);}
+    try{history.replaceState(null,'','#b'+i);}catch(e){}
+    document.getElementById('side').classList.remove('open');
+  }
+  document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.i)})});
+  document.querySelectorAll('.sub').forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault(); show(+a.dataset.sec,true);
+    var t=document.getElementById(a.getAttribute('href').slice(1)); if(t)t.scrollIntoView({block:'start'});
+  })});
+  document.getElementById('pv').onclick=function(){show(cur-1)};
+  document.getElementById('nx').onclick=function(){show(cur+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.target.tagName==='INPUT')return;
+    if(e.key==='ArrowRight')show(cur+1); if(e.key==='ArrowLeft')show(cur-1);
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(e){
+    e.preventDefault(); var box=b.parentElement.nextElementSibling; var txt=box?box.innerText:'';
+    try{navigator.clipboard.writeText(txt).then(function(){b.textContent='Скопировано';b.classList.add('ok');setTimeout(function(){b.textContent='Копировать';b.classList.remove('ok')},1500)});}catch(err){}
+  })});
+  document.querySelectorAll('input[data-k]').forEach(function(c){
+    try{c.checked=localStorage.getItem('dv-'+c.dataset.k)==='1';}catch(e){}
+    c.addEventListener('change',function(){try{localStorage.setItem('dv-'+c.dataset.k,c.checked?'1':'0');}catch(e){}});
+  });
+  document.querySelectorAll('a.jump').forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault(); var d=document.getElementById(a.dataset.c); if(d){d.open=true; d.scrollIntoView({block:'start'});}
+  })});
+  var fs=17;
+  function setfs(v){fs=Math.max(14,Math.min(24,v));document.documentElement.style.setProperty('--fs',fs+'px');}
+  document.getElementById('fp').onclick=function(){setfs(fs+1)};
+  document.getElementById('fm').onclick=function(){setfs(fs-1)};
+  document.getElementById('menu').onclick=function(){document.getElementById('side').classList.toggle('open')};
+  var m=location.hash.match(/^#b(\d+)$/); show(m?+m[1]:0);
+})();
+
+
+(function(){
+document.querySelectorAll('pre').forEach(function(p){
+  var code=p.querySelector('code')||p;var txt=code.textContent;
+  var lines=txt.split('\n').filter(function(l){return l.indexOf('ГОВОРИТЕ:')===0;});
+  if(lines.length<2)return;
+  var plain=lines.map(function(l){var t=l.replace('ГОВОРИТЕ:','').trim();t=t.replace(/^«/,'').replace(/»$/,'');return t;}).join('\n\n');
+  var wrap=document.createElement('div');wrap.className='sw';
+  var bar=document.createElement('div');bar.className='st';
+  var b1=document.createElement('button');b1.type='button';b1.className='on';b1.textContent='С описанием: хук, экран, кадр';
+  var b2=document.createElement('button');b2.type='button';b2.textContent='Только текст для записи';
+  bar.appendChild(b1);bar.appendChild(b2);
+  var p2=document.createElement('pre');p2.className='plain';p2.style.display='none';
+  var c2=document.createElement('code');c2.textContent=plain;p2.appendChild(c2);
+  p.parentNode.insertBefore(wrap,p);wrap.appendChild(bar);wrap.appendChild(p);wrap.appendChild(p2);
+  b1.onclick=function(){p.style.display='';p2.style.display='none';b1.className='on';b2.className='';};
+  b2.onclick=function(){p.style.display='none';p2.style.display='';b2.className='on';b1.className='';};
+});
+})();
+
+document.querySelectorAll('.tbar button').forEach(function(b){b.addEventListener('click',function(){var t=b.closest('.tabs');t.querySelectorAll('.tbar button').forEach(function(x){x.classList.toggle('on',x===b)});t.querySelectorAll(':scope>.tp').forEach(function(p){p.classList.toggle('on',p.dataset.t===b.dataset.t)});});});
+document.querySelectorAll('.sub').forEach(function(a){a.addEventListener('click',function(){var t=document.getElementById(a.getAttribute('href').slice(1));if(!t)return;var tp=t.closest('.tp');if(tp&&!tp.classList.contains('on')){var tb=tp.parentElement;tb.querySelectorAll(':scope>.tp').forEach(function(p){p.classList.toggle('on',p===tp)});tb.querySelectorAll('.tbar button').forEach(function(x){x.classList.toggle('on',x.dataset.t===tp.dataset.t)});setTimeout(function(){t.scrollIntoView({block:'start'})},30);}});});
+document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var i=+a.dataset.go;var nb=document.querySelector('.nb[data-i="'+i+'"]');if(nb)nb.click();});});
+document.querySelectorAll('pre').forEach(function(p){var b=document.createElement('button');b.className='cp';b.type='button';b.textContent='Копировать';b.onclick=function(){var t=p.querySelector('code')?p.querySelector('code').innerText:p.innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Готово';setTimeout(function(){b.textContent='Копировать'},1500)}).catch(function(){var r=document.createRange();r.selectNodeContents(p.querySelector('code')||p);var se=getSelection();se.removeAllRanges();se.addRange(r);b.textContent='Выделено, Ctrl+C';});};p.appendChild(b);});
+</script></body></html>
